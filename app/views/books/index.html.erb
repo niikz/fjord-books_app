@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to t('common.button.create'), new_book_path %>
+<%= link_to t('common.button.create', book: Book.model_name.human), new_book_path %>
