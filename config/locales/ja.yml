@@ -7,6 +7,30 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+    models:
+      book: 書籍情報
+    attributes:
+      book:
+        title: タイトル
+        memo: メモ
+        author: 著者
+        picture: 画像
+  common:
+    button:
+      create: 新規作成
+      show: 詳細
+      edit: 編集
+      destroy: 削除
+      back: 戻る
+    notice:
+      create: '%{book}を登録しました。'
+      update: '%{book}を更新しました。'
+      destroy: '%{book}を削除しました。'
+      confirm_delete: '%{book}を削除しますか？'
+    title:
+      new: '%{book}を登録'
+      edit: '%{book}を編集'
+      index: '%{book}一覧'
   date:
     abbr_day_names:
     - 日

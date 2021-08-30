@@ -7,6 +7,30 @@ en:
         restrict_dependent_destroy:
           has_one: Cannot delete record because a dependent %{record} exists
           has_many: Cannot delete record because dependent %{record} exist
+    models:
+      book: Book
+    attributes:
+      book:
+        title: Title
+        memo: Memo
+        author: Author
+        picture: Picture
+  common:
+    button:
+      create: 'New %{book}'
+      show: Show
+      edit: Edit
+      destroy: Destroy
+      back: Back
+    notice:
+      create: '%{book} was successfully created.'
+      update: '%{book} was successfully updated.'
+      destroy: '%{book} was successfully destroyed.'
+      confirm_delete: Are you sure?
+    title:
+      new: 'New %{book}'
+      edit: 'Editing %{book}'
+      index: '%{book} List'
   date:
     abbr_day_names:
     - Sun
