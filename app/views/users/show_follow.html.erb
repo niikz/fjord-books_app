@@ -1,0 +1,30 @@
+<h1><%= @user.name %></h1>
+
+<p>
+  <% if @user.avatar.attached? %>
+    <%= image_tag @user.avatar.variant(resize_to_fill: [150, 150])%>
+  <% end %>
+</p>
+
+<p><%= render 'shared/stats' %></p>
+
+<h2><%= @title %></h2>
+<% if @users.any? %>
+  <table>
+    <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <th>
+          <% if user.avatar.attached? %>
+            <%= image_tag user.avatar.variant(resize_to_fill: [30, 30])%>
+          <% end %>
+        </th>
+        <td><%= user.name %></td>
+        <td><%= link_to t('views.common.show'), user %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<%= link_to t('views.common.back'), user_path %>
