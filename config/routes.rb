@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
-  authenticated do
-    root to: 'books#index', as: :authenticated_root
-  end
-
-  devise_scope :user do
-    root to: 'devise/sessions#new'
-  end
+  root to: 'books#index'
 
   devise_for :users, controllers: {
     passwords: 'users/passwords',
