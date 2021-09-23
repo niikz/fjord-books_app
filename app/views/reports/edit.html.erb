@@ -1,2 +1,6 @@
-<h1>Reports#edit</h1>
-<p>Find me in app/views/reports/edit.html.erb</p>
+<h1><%= t('views.common.title_edit', name: Report.model_name.human) %></h1>
+
+<%= render 'form', report: @report %>
+
+<%= link_to t('views.common.show'), @report %> |
+<%= link_to t('views.common.back'), reports_path %>
