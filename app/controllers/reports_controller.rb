@@ -1,5 +1,5 @@
 class ReportsController < ApplicationController
-  before_action :set_report, only: %i[show edit update]
+  before_action :set_report, only: %i[show edit update destroy]
 
   def index
     @reports = Report.order(:id).page(params[:page])
@@ -36,6 +36,14 @@ class ReportsController < ApplicationController
         format.html { render :edit }
         format.json { render json: @report.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def destroy
+    @report.destroy
+    respond_to do |format|
+      format.html { redirect_to reports_url, notice: t('controllers.common.notice_destroy', name: Report.model_name.human) }
+      format.json { head :no_content }
     end
   end
 
