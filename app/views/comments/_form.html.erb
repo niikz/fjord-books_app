@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :text %>
-    <%= form.text_area :text %>
+    <strong><%= form.label :text, t('views.common.title_new', name: Comment.model_name.human) %></strong>
+    <%= form.text_area :text, required: true %>
   </div>
 
   <div class="actions">
