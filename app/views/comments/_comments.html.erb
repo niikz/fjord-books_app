@@ -1,5 +1,8 @@
 <h2><%= Comment.model_name.human %></h2>
 
+<% if commentable.comments.blank? %>
+  <p>まだコメントはありません。</p>
+<% end %>
 <% commentable.comments.each do |comment| %>
   <div>
     <% user = User.find(comment.user_id) %>
