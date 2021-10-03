@@ -2,6 +2,10 @@
 
 <% commentable.comments.each do |comment| %>
   <div>
+    <% user = User.find(comment.user_id) %>
+    <% user_info = user.name.blank? ? user.email : user.name %>
+    <p><%= user_info %></p>
     <p><%= comment.text %></p>
+    <p><%= l comment.created_at %></p>
   </div>
 <% end %>
