@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ReportsController < ApplicationController
   before_action :set_report, only: %i[show edit update destroy]
   before_action :ensure_current_user, only: %i[edit update destroy]
@@ -59,9 +61,9 @@ class ReportsController < ApplicationController
   end
 
   def ensure_current_user
-    if @report.user_id != current_user.id
-      flash.now[:alert] = t('report.errors.ensure', name: Report.model_name.human)
-      render :show
-    end
+    return unless @report.user_id != current_user.id
+
+    flash.now[:alert] = t('report.errors.ensure', name: Report.model_name.human)
+    render :show
   end
 end
