@@ -1,5 +1,6 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: %i[show edit update destroy]
+  before_action :ensure_current_user, only: %i[edit update destroy]
 
   def index
     @reports = Report.order(:id).page(params[:page])
@@ -52,7 +53,15 @@ class ReportsController < ApplicationController
   def set_report
     @report = Report.find(params[:id])
   end
+
   def report_params
     params.require(:report).permit(:title, :body)
+  end
+
+  def ensure_current_user
+    if @report.user_id != current_user.id
+      flash.now[:alert] = '権限がありません'
+      render :show
+    end
   end
 end
