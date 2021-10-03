@@ -60,7 +60,7 @@ class ReportsController < ApplicationController
 
   def ensure_current_user
     if @report.user_id != current_user.id
-      flash.now[:alert] = '権限がありません'
+      flash.now[:alert] = t('report.errors.ensure', name: Report.model_name.human)
       render :show
     end
   end
