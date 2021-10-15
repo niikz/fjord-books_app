@@ -6,7 +6,7 @@
   <% end %>
 </p>
 
-<p><%= render 'shared/stats' %></p>
+<p><%= render 'shared/stats', user: @user %></p>
 
 <h2><%= @title %></h2>
 <% if @users.any? %>
