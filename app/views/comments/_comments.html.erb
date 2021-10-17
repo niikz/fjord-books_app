@@ -1,7 +1,7 @@
 <h2><%= Comment.model_name.human %></h2>
 
 <% if commentable.comments.blank? %>
-  <p>まだコメントはありません。</p>
+  <p><%= t('comment.submit.not_yet', name: Comment.model_name.human) %></p>
 <% end %>
 <% commentable.comments.each do |comment| %>
   <div>

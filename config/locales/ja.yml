@@ -261,3 +261,5 @@ ja:
   comment:
     errors:
       create: "%{name}に失敗しました"
+    submit:
+      not_yet: まだコメントはありません
