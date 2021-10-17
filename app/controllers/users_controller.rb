@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @followed = current_user.active_friendships.find_by(followed_id: @user.id)
   end
 
   def followings
