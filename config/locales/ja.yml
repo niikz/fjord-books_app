@@ -255,3 +255,11 @@ ja:
     registrations:
       edit:
         title: "アカウント編集"
+  report:
+    errors:
+      ensure: 権限がありません
+  comment:
+    errors:
+      create: "%{name}に失敗しました"
+    submit:
+      not_yet: まだコメントはありません
