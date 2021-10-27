@@ -74,3 +74,10 @@ User.order(:id).each do |user|
 end
 
 puts '初期データの投入が完了しました。' # rubocop:disable Rails/Output
+
+users = User.all
+user  = users.first
+followings = users[2..50]
+followers = users[3..40]
+followings.each { |followed| user.follow(followed) }
+followers.each { |follower| follower.follow(user) }
